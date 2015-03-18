@@ -1,0 +1,21 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+
+
+ <!-- Question Box -->
+
+<h1>Ask Me</h1>
+<p>usually answered in minutes!</p>
+
+<%= form_for :article do |f| %>
+  <p>
+    <%= f.text_area :text, placeholder: "What's up?" %>
+
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
