@@ -2,6 +2,13 @@
 <p>Find me in app/views/welcome/index.html.erb</p>
 
 
+<!-- listing articles -->
+<h1>listing articles</h1>
+
+<% @articles.each do |article| %>
+  <%= article.text %><br>
+<% end %>
+
 
 
 
