@@ -3,19 +3,21 @@
 
 
 
- <!-- Question Box -->
+
+
+
+<!-- Question Box -->
 
 <h1>Ask Me</h1>
 <p>usually answered in minutes!</p>
 
-<%= form_for :article do |f| %>
-  <p>
+<%= form_for :article, url: articles_path do |f| %>
+  <div class="field">
     <%= f.text_area :text, placeholder: "What's up?" %>
+  </div>
 
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
+  <div class= "actions" %>
+    <%= f.submit "submit" %>
+  </div>
 <% end %>
+
