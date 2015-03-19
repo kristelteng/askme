@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   resources :articles do 
     resources :comments
+    resources :users, only: [:new, :create]
+
   end
 
 
