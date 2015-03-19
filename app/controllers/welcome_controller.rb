@@ -3,12 +3,8 @@ class WelcomeController < ApplicationController
     @articles = Article.all 
   end
 
-  def show
-    @article = Article.find(params[:id])
-  end
-
 private
   def article_params
-    params.require(:article).permit(:text)
+    params.require(:article).permit(:text, :title)
   end
 end
