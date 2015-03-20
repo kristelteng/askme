@@ -12,13 +12,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-def show
-  @question = Question.find(params[:id])
+  def show
+    @question = Question.find(params[:id])
 
-  if current_user
-    @answer = @question.answers.build
+    if current_user
+      @answer = @question.answers.build
+    end
   end
-end
 
   def create
     @question = Question.new(question_params)
