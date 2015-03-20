@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :ensure_logged_in, only: [:create]
+  before_filter :ensure_logged_in, only: [:create, :destroy]
 
   def index
     @questions = Question.all
