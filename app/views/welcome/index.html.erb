@@ -1,17 +1,5 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-
-
-<!-- listing articles -->
-<h1>list of questions</h1>
-
-<% @questions.each do |question| %>
-  <strong>Title:</strong>
-  <%= link_to question.title, question_path(question) %><br>
-<% end %>
-
 <!-- Question Box -->
-<h1>Ask Me</h1>
+<h1>ask me</h1>
 <p>usually answered in minutes!</p>
 
 <%= form_for :question, url: questions_path do |f| %>
@@ -23,5 +11,14 @@
   <div class= "actions" %>
     <%= f.submit "submit" %>
   </div>
+<% end %>
+
+
+<!-- listing articles -->
+<h1>list of questions</h1>
+
+<% @questions.each do |question| %>
+  <strong>Title:</strong>
+  <%= link_to question.title, question_path(question) %><br><hr>
 <% end %>
 

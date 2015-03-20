@@ -1,22 +1,17 @@
-<h1>Answers here!</h1>
-
-<p>Question: <%= @question.title %></p>
-
+<h3>Question: <%= @question.title %></h3>
 
 <% @question.answers.each do |answer| %>
   <p>
-    <%= answer.body %>
-    <br>
     <% if answer.user != nil %>
-      <em>by <%= answer.user.email %></em>
-      Added on: <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>
+      <em><%= answer.user.email %></em>
+      answered on <%= answer.created_at.strftime("%d %b. %Y %H:%M") %><br>
+      <%= answer.body %><hr>
     <% end %>
   </p>
 <% end %>
 
 
 <% if current_user %>
-<!--   <h4>new answers</h4> -->
 
   <%= form_for([@question, @answer]) do |f| %>
     
@@ -39,12 +34,12 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "answer" %>
     </div>
   <% end %>
 
 <% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to add a review. </p>
+  <p><%= link_to "comment", new_session_path %> </p>
 <% end %>
 
 <%= link_to 'Back', root_path %>
