@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answer.user = current_user
 
     if @answer.save
-      redirect_to question_path(@question.id), notice: "You have answered the question!"
+      redirect_to question_path(@question.id)
     else
       render 'questions/show'
     end
