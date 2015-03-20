@@ -40,11 +40,6 @@ end
     end
   end
 
-
-  def show
-    @question = Question.find(params[:id])
-  end
-
   def destroy
     @question = Question.find(params[:id])
     @question.destroy

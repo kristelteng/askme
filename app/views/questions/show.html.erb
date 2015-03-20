@@ -1,16 +1,54 @@
 <h1>Answers here!</h1>
 
-<p>
-  <strong>title:</strong>
-  <%= @question.title %>
-</p>
+<p>Question: <%= @question.title %></p>
 
-<h2>Answers:</h2>
-<%= render @question.answers %>
 
-<h2>Add an answer:</h2>
-<%= render 'answers/form' %>
+<% @question.answers.each do |answer| %>
+  <p>
+    <%= answer.body %>
+    <br>
+    <% if answer.user != nil %>
+      <em>by <%= answer.user.email %></em>
+      Added on: <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>
+    <% end %>
+  </p>
+<% end %>
+
+
+<% if current_user %>
+<!--   <h4>new answers</h4> -->
+
+  <%= form_for([@question, @answer]) do |f| %>
+    
+    <% if @answer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this review from being saved: </h2>
+
+        <ul>
+        <% @answer.errors.full_messages.each do |msg|
+         %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :comments %><br>
+      <%= f.text_area :body %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to add a review. </p>
+<% end %>
 
 <%= link_to 'Back', root_path %>
-<%= link_to 'Destroy', answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Edit', edit_answer_path %>
+
+<%#= link_to 'Destroy', question_answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+
+<%= link_to 'Edit', edit_question_path %>
