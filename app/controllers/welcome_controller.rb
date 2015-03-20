@@ -1,10 +1,10 @@
 class WelcomeController < ApplicationController
   def index
-    @articles = Article.all 
+    @questions = Question.all 
   end
 
 private
-  def article_params
-    params.require(:article).permit(:text, :title)
+  def question_params
+    params.require(:question).permit(:text, :title, :user_id)
   end
 end

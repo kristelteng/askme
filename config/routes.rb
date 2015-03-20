@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   
-  resources :articles do
-    resources :comments, only: [:create, :destroy, :show]
+  resources :questions do
+    resources :answers, only: [:create, :destroy, :show]
   end 
   
   resources :users, only: [:new, :create]

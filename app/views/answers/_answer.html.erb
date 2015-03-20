@@ -1,0 +1,14 @@
+<p>
+  <strong>Commenter:</strong>
+  <%= answer.commenter %><br>
+  <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= answer.body %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Comment', [answer.question, question], method: :delete, data: {confirm: 'Are you sure?'}  %><hr>
+</p>

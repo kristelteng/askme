@@ -1,0 +1,16 @@
+<h1>Answers here!</h1>
+
+<p>
+  <strong>title:</strong>
+  <%= @question.title %>
+</p>
+
+<h2>Answers:</h2>
+<%= render @question.answers %>
+
+<h2>Add an answer:</h2>
+<%= render 'answers/form' %>
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Destroy', answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Edit', edit_answer_path %>
