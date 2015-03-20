@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answer.user = current_user
 
     if @answer.save
-      redirect_to @question, notice: "Review created"
+      redirect_to question_path(@question.id), notice: "You have answered the question!"
     else
       render 'questions/show'
     end
@@ -20,11 +20,12 @@ class AnswersController < ApplicationController
   def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
+
   end 
 
 private
   def answer_params
-    params.require(:answer).permit(:commenter, :body, :question_id)
+    params.require(:answer).permit(:body, :question_id)
   end
 
   def load_question

@@ -2,11 +2,12 @@
 <h3>Question: <%= @question.title %></h3>
 
 <!-- DELETE QUESTION -->
-<%= link_to 'Destroy question', question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Destroy question', question_path, method: :delete, data: {confirm: 'Delete the question?'} %>
 
 <!-- EDIT QUESTION -->
 <%= link_to 'Edit question', edit_question_path %>
 
+<!-- ANSWERS SECTION -->
 <% @question.answers.each do |answer| %>
   <p>
     <% if answer.user != nil %>
@@ -16,6 +17,10 @@
     <% end %>
   </p>
 <% end %>
+
+
+<!-- EDIT ANSWER -->
+<%= link_to 'Edit answer', edit_question_path(@question) %>
 
 
 
