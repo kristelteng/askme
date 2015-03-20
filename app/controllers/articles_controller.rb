@@ -1,28 +1,29 @@
-class ArticlesController < ApplicationController
+class QuestionsController < ApplicationController
+  
   def index
-    @articles = Article.all
+    @questions = Question.all
   end
 
   def new 
-    @article = Article.new
+    @question = Question.new
   end 
 
   def edit 
-    @article = Article.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
 def show
-  @article = Article.find(params[:id])
+  @question = Question.find(params[:id])
 
   if current_user
-    @comment = @article.comments.build
+    @answer = @question.answers.build
   end
 end
 
   def create
-    @article = Article.new(article_params)
+    @question = Question.new(question_params)
 
-    if @article.save
+    if @question.save
       redirect_to root_path
     else
       render 'new'
@@ -30,10 +31,10 @@ end
   end 
 
   def update
-    @article = Article.find(params[:id])
+    @question = Question.find(params[:id])
 
-    if @article.update(article_params)
-      redirect_to @article
+    if @question.update(question_params)
+      redirect_to @question
     else
       render 'edit'
     end
@@ -41,18 +42,18 @@ end
 
 
   def show
-    @article = Article.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+    @question = Question.find(params[:id])
+    @question.destroy
 
-    redirect_to articles_path
+    redirect_to questions_path
   end 
 
   private
-  def article_params
-    params.require(:article).permit(:text, :title)
+  def question_params
+    params.require(:question).permit(:text, :title)
   end
 end
