@@ -11,6 +11,13 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+def show
+  @article = Article.find(params[:id])
+
+  if current_user
+    @comment = @article.comments.build
+  end
+end
 
   def create
     @article = Article.new(article_params)
