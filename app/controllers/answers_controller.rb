@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
-  
   before_filter :load_question
+  before_filter :ensure_logged_in, only: [:create, :destroy]
 
   def show
     @answer = Answer.find(params[:id])
