@@ -19,11 +19,6 @@
 <% end %>
 
 
-<!-- EDIT ANSWER -->
-<%= link_to 'Edit answer', edit_question_path(@question) %>
-
-
-
 <!-- ANSWERS SECTION -->
 <% if current_user %>
 
@@ -41,6 +36,7 @@
       </div>
     <% end %>
 
+
 <!-- COMMENT BOX -->
     <div class="field">
       <%= f.label :comments? %><br>
@@ -52,11 +48,15 @@
     </div>
   <% end %>
 
+
 <!-- MUST SIGN IN TO LEAVE A COMMENT -->
 <% else %>
   <p><%= link_to "comment", new_session_path %> </p>
 <% end %>
 
-
+<!-- LINKS -->
 <%= link_to 'Home', root_path %>
 
+<!-- NOT WORKING LINKS -->
+<%#= link_to 'Edit answer', edit_question_path(@question) %>
+<%#= link_to 'Destroy answer', question_answer_path, method: :delete, data: {confirm: 'Delete the answer?'} %>

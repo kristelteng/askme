@@ -1,10 +1,11 @@
 class AnswersController < ApplicationController
   before_filter :load_question
-  before_filter :ensure_logged_in, only: [:create, :destroy]
+  # before_filter :ensure_logged_in, only: [:create, :destroy]
 
   def show
     @answer = Answer.find(params[:id])
   end
+
 
   def create
     @answer = @question.answers.build(answer_params)
@@ -20,7 +21,6 @@ class AnswersController < ApplicationController
   def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
-
   end 
 
 private
