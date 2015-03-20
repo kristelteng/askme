@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20150320012519) do
 
   create_table "answers", force: true do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "question_id"
     t.datetime "created_at"
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150320012519) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
