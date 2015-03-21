@@ -34,9 +34,19 @@ password_confirmation: "1234",
 
 
 ###### QUESTIONS BY USER_ID: 1 ######
-Question.create!(
-title: "Burger King is WAY better than McDonalds, and to be quite honest, I could care less if any of you agree with me on this subject.?", 
-user_id: "1"
+q1 = Question.create!(
+  title: "Burger King is WAY better than McDonalds, and to be quite honest, I could care less if any of you agree with me on this subject.?", 
+  user_id: 1
+)
+Answer.create!(
+  body: "I don't agree. McDonalds is better.",
+  user_id: 2,
+  question_id: q1.id,
+)
+Answer.create!(
+  body: "You're wrong, Burger King is better.",
+  user_id: 3,
+  question_id: q1.id,
 )
 
 Question.create!(
