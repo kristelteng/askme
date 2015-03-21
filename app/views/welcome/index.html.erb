@@ -1,12 +1,13 @@
 <!-- Question Box -->
-<h1 class="ask-me">ask me</h1><hr>
-<p class="tagline">usually answered in minutes!</p>
+<!-- create a div --> 
+<h1 class="ask-me">ask me</h1>
+<p class="tagline">usually answered in minutes!</p><hr>
 
 
 <%= form_for :question, url: questions_path do |f| %>
   <div class="row">
     <div class="input-group">
-      <%= f.label :Questions?, class: 'questions-field' %>
+      <%= f.label :Questions?, class: 'label-field' %>
       <%= f.text_field :title, class: 'form-control', placeholder: "Search for..." %>
  
  <!-- submit box not align properly      -->
@@ -29,3 +30,5 @@
     <em>- <%= question.user.email %> -</em><hr>
   </div>
 <% end %>
+
+    

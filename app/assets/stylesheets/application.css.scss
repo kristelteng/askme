@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "welcome";
+@import "questions";
 
 
 @font-face {
@@ -44,6 +45,8 @@ html, body {
   font-family: Lato-Bold, sans-serif;
   font-size: 13px;
   color: #777;
+}
 
-
+a {
+  text-decoration: none;
 }

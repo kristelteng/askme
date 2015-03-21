@@ -1,3 +1,16 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.question-title {
+  font-size: 30px;
+  line-height: 130%;
+  text-decoration: none;
+} 
+
+.answer-body {
+  font-size: 16px;
+  color: #777;
+  padding-top: 8px;
+}
