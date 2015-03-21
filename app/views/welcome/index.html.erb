@@ -6,15 +6,14 @@
 
 <%= form_for :question, url: questions_path do |f| %>
   <div class="row">
-    <div class="input-group">
       <%= f.label :Questions?, class: 'label-field' %>
-      <%= f.text_field :title, class: 'form-control', placeholder: "Search for..." %>
- 
- <!-- submit box not align properly      -->
-      <span class="input-group-btn">
-        <%= f.submit "submit", class: 'btn btn-default' %>    
-      </span>
-    </div><!-- /input-group -->
+      <div class="input-group">
+        <%= f.text_field :title, class: 'form-control', placeholder: "Ask a question" %>
+
+        <span class="input-group-btn">
+          <%= f.submit "submit", class: 'btn btn-primary' %>    
+        </span>
+      </div><!-- /input-group -->
   </div><!-- /row -->
 <% end %>
 
