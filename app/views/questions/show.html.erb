@@ -8,7 +8,7 @@
 </div>
 
 
-<% @question.answers.each do |answer| %>
+<% @question.answers.order('id desc').each do |answer| %>
   <p>
     <% if answer.user != nil %>
       
@@ -44,18 +44,14 @@
 
 <!-- COMMENT BOX -->
     <div class="row">
-      <div class="input-group">
         <div class="field">
           <%= f.label :any_comments?, class: 'label-field' %><br>
-          <%= f.text_area :body, class: 'form-control', placeholder: "what's up?..." %>
+          <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment here" %>  
         </div><!-- /field -->
          
+        <%= f.submit "answer", class: 'btn btn-default' %>  
 
         <!-- submit box not align properly      -->
-        <span class="input-group-btn">
-          <%= f.submit "answer", class: 'btn btn-default' %>    
-        </span>
-      </div><!-- /input-group -->
     </div><!-- /row -->
   <% end %>
 
