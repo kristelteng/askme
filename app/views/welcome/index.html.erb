@@ -20,14 +20,28 @@
 
 
 <!-- listing articles -->
- <% @questions.each do |question| %>
+ <% @questions.order("id desc").each do |question| %>
   <div class="question-title">
     <%= link_to question.title, question_path(question), class: 'title' %>
   </div>
 
   <div class="author">
-    <em>- <%= question.user.email %> -</em><hr>
+    <em>- <%= question.user.email %> - <%= question.created_at.strftime("%d %b. %Y %H:%M") %></em>
   </div>
+
+  <div class="answer-count">
+    Answers(<%= question.answers.count %>)
+  </div>
+
+  <% question.answers.order('id desc').limit(1).each do |answer| %>
+      <div class="answer-body">
+        <%= answer.body.truncate(200) %>
+      </div>
+      <div class="author">
+        <em>- <%= answer.user.email %> answered on <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>- </em>
+      </div>
+  <% end %>
+  <hr>
 <% end %>
 
     
