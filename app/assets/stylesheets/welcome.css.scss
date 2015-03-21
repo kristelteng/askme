@@ -1,7 +1,7 @@
 .ask-me {
   font-family: Lato-Bold, sans-serif;
-  font-size: 20px;
-  color: #777;
+  font-size: 30px;
+  color: #333;
   text-transform: uppercase;
 }
 
@@ -10,3 +10,56 @@
   font-size: 13px;
   color: #777;
 }
+
+.tagline {
+  font-family: Lato-Regular, sans-serif;
+  color: #ccc;
+  font-size: 16px;
+}
+
+hr {
+  margin-bottom: 5px;
+  border-width: 3px 0px 0px;
+}
+
+.form-control:focus {
+  border-color: #ccc;
+  box-shadow: none;
+}
+
+.form-control{
+  font-size: 15px;
+  color: #ccc;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+.questions-field {
+  color: #777;
+  font-size: 20px;
+  font-family: Lato-Light;
+  padding-top: 30px;
+}
+
+.author {
+  color: #ccc;
+  font-size: 16px;
+  font-family: Lato-thin;
+  padding-top: 25px;
+
+}
+
+
+.question-title {
+  font-size: 30px;
+  font-family: Lato-Bold;
+  color: #555;
+
+}
+
+
+
+
+

@@ -1,25 +1,30 @@
 <!-- Question Box -->
-<h1 class="ask-me">ask me</h1>
-<p>usually answered in minutes!</p>
+<h1 class="ask-me">ask me</h1><hr>
+<p class="tagline">usually answered in minutes!</p>
+
 
 <%= form_for :question, url: questions_path do |f| %>
-  
-  <div class="field">
-    <%= f.text_area :title, placeholder: "What's up?" %>
-  </div>
-
-  <div class= "actions" %>
-    <%= f.submit "submit" %>
-  </div>
+  <div class="row">
+    <div class="input-group">
+      <%= f.label :Questions?, class: 'questions-field' %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "Search for..." %>
+      
+      <span class="input-group-btn">
+        <%= f.submit "submit", class: 'btn btn-default' %>    
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /row -->
 <% end %>
-    
 
 
 <!-- listing articles -->
-<h1>list of questions</h1>
-
+ 
 <% @questions.each do |question| %>
-  <strong>Author:</strong><%= question.user.email %><br>
-  <strong>Title:</strong><%= link_to question.title, question_path(question) %><br>
-  <hr>
+  <div class="author">
+    <em><%= question.user.email %></em><br>
+  </div>
+  
+  <div class="question-title">
+    <%= link_to question.title, question_path(question) %>
+  </div>
 <% end %>

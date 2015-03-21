@@ -16,10 +16,19 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <%= link_to image_tag("ask-logo-01.png"), root_url, class: 'nav-bar-link brand-image' %>
-        
+                
+        <p class="navbar-text navbar-right">
+          <% if current_user %>
+            Hi <%= current_user.email %>. <%= link_to 'log out', session_path('current'), :method => :delete %>
+          <% else %>
+            <%= link_to 'log in', new_session_path %> or <%= link_to 'sign up', new_user_path %>
+          <% end %>
+      </p>
+  
       </div>
     </div>
   </nav>
+  <!--  NAVBAR -->
 
     <div class="row">
       <!--  NOTICE AND ALERTS -->
@@ -30,19 +39,22 @@
       <% if flash[:alert] %>
         <p id="alert"><%= flash[:alert] %></p>
       <% end %>
-      <div class="col-sm-6 col-sm-offset-3">
       
-      <%= yield %>
-
-      <p class="userinfo">
-        <% if current_user %>
-          Signed in as <%= current_user.email %>. <%= link_to 'log out', session_path('current'), :method => :delete %>
-        <% else %>
-          <%= link_to 'log in', new_session_path %> or <%= link_to 'sign up', new_user_path %>
-        <% end %>
-      </p>
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= yield %>
       </div>
+
+      <!-- div class="col-sm-offset-3">
+        <p class="userinfo">
+          <% if current_user %>
+            Hi <%= current_user.email %>. <%= link_to 'log out', session_path('current'), :method => :delete %>
+          <% else %>
+            <%= link_to 'log in', new_session_path %> or <%= link_to 'sign up', new_user_path %>
+          <% end %>
+        </p> -->
+  
     </div>
 </div>
+
 </body>
 </html>
