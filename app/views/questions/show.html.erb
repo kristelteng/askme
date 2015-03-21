@@ -50,11 +50,10 @@
 <!-- LINKS -->
 <%= link_to 'Home', root_path %>
 
+
+<!-- DELETE QUESTION -->
 <% if current_user && current_user == @question.user %>
-  <!-- DELETE QUESTION -->
-  <%= link_to 'Destroy question', question_path, method: :delete, data: {confirm: 'Delete the question?'} %>
- 
-  <!-- EDIT QUESTION -->
+   <%= link_to 'Destroy question', question_path, method: :delete, data: {confirm: 'Delete the question?'} %>
   <%= link_to 'Edit question', edit_question_path %>
 <% end %>
 

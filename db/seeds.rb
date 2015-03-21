@@ -101,7 +101,6 @@ user_id: "3"
 )
 
 
-
 ###### QUESTIONS BY USER_ID: 4 ######
 Question.create!(
 title: "IPhone 6 or 6 Plus?", 
