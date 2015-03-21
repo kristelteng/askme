@@ -9,18 +9,29 @@ class AnswersController < ApplicationController
 
   def create
     @answer = @question.answers.build(answer_params)
-    @answer.user = current_user
+    @answer.body.strip!
 
-    if @answer.save
-      redirect_to question_path(@question.id)
+    if @answer.body.length > 0
+      @answer.user = current_user
+
+      if @answer.save
+        redirect_to question_path(@question.id)
+      else
+        render 'questions/show'
+      end
     else
-      render 'questions/show'
+      flash[:notice] = "Answer cannot be empty"
+      redirect_to @question
     end
   end
 
   def destroy
     @answer = Answer.find(params[:id])
-    @answer.destroy
+    if current_user && current_user == @answer.user
+      @answer.destroy
+    else
+      flash[:notice] = "You are not allowed to delete this answer"
+    end
   end 
 
 private

@@ -23,12 +23,19 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @question.user = current_user
+    @question.title.strip!
 
-    if @question.save
-      redirect_to root_path
+    if @question.title.length > 0
+      @question.user = current_user
+
+      if @question.save
+        redirect_to @question
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to root_path
+      flash[:notice] = "Question cannot be empty"
     end
   end 
 
