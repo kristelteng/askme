@@ -16,14 +16,16 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <%= link_to image_tag("ask-logo-01.png"), root_url, class: 'nav-bar-link brand-image' %>
-                
-        <p class="navbar-text navbar-right">
+      </div>
+      
+      <div class="collapse navbar-collapse">               
+        <div class="navbar-text navbar-right">
           <% if current_user %>
             Hi <%= current_user.email %> | <%= link_to 'log out', session_path('current'), :method => :delete %>
           <% else %>
             <%= link_to 'log in', new_session_path %> or <%= link_to 'sign up', new_user_path %>
           <% end %>
-      </p>
+        </div>
   
       </div>
     </div>
