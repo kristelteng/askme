@@ -13,7 +13,7 @@
     <% if answer.user != nil %>
       
       <div class="author">
-        <em>- <%= answer.user.email %> answered on <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>- </em>
+        <em>- <%= answer.user.email %> answered <%= distance_of_time_in_words(Time.now, answer.created_at) %> ago- </em>
       </div>
       
       <div class="answer-body">
