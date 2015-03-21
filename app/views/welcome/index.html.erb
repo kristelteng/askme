@@ -5,7 +5,7 @@
 
 
 <%= form_for :question, url: questions_path do |f| %>
-  <div class="row">
+  <div>
       <%= f.label :Questions?, class: 'label-field' %>
       <div class="input-group">
         <%= f.text_field :title, class: 'form-control', placeholder: "Ask a question" %>
@@ -14,7 +14,7 @@
           <%= f.submit "submit", class: 'btn btn-primary' %>    
         </span>
       </div><!-- /input-group -->
-  </div><!-- /row -->
+  </div>
 <% end %>
 
 
