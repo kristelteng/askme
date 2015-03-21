@@ -3,6 +3,6 @@ class Question < ActiveRecord::Base
                     length: {minimum: 5}
 
   has_many :answers, dependent: :destroy
-  has_many :users, through: :answers
+  belongs_to :user
   
 end

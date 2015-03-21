@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
 
     if @question.save
       redirect_to root_path
@@ -43,8 +44,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
-    @question.destroy
-
+    # if user is logged in AND user is the one who wrote the question
+    if current_user && current_user == @question.user
+      @question.destroy
+    else
+      flash[:notice] = "you cannot delete this question"
+    end
     redirect_to root_path
   end 
 
