@@ -8,7 +8,8 @@
     <div class="input-group">
       <%= f.label :Questions?, class: 'questions-field' %>
       <%= f.text_field :title, class: 'form-control', placeholder: "Search for..." %>
-      
+ 
+ <!-- submit box not align properly      -->
       <span class="input-group-btn">
         <%= f.submit "submit", class: 'btn btn-default' %>    
       </span>
@@ -17,14 +18,14 @@
 <% end %>
 
 
+
 <!-- listing articles -->
- 
-<% @questions.each do |question| %>
-  <div class="author">
-    <em><%= question.user.email %></em><br>
-  </div>
-  
+ <% @questions.each do |question| %>
   <div class="question-title">
-    <%= link_to question.title, question_path(question) %>
+    <%= link_to question.title, question_path(question), class: 'title' %>
+  </div>
+
+  <div class="author">
+    <em>- <%= question.user.email %> -</em><hr>
   </div>
 <% end %>
