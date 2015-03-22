@@ -4,8 +4,9 @@
 </div>
 
 <div class="author">
-  <em>- <%= @question.user.email %> -</em><hr>
+  <em>- <%= @question.user.email %> - <%= distance_of_time_in_words(Time.now, @question.created_at) %> ago</em>
 </div>
+<hr>
 
 
 <% @question.answers.order('id desc').each do |answer| %>

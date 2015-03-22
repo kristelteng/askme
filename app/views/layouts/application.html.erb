@@ -19,7 +19,7 @@
       </div>
       
       <div class="collapse navbar-collapse">               
-        <div class="navbar-text navbar-right">
+        <div class="navbar-text navbar-right askme-navbar-text">
           <% if current_user %>
             Hi <%= current_user.email %> | <%= link_to 'log out', session_path('current'), :method => :delete %>
           <% else %>
@@ -33,16 +33,15 @@
   <!--  NAVBAR -->
 
   <div class="row">
-    <!--  NOTICE AND ALERTS -->
-    <% if flash[:notice] %>
-      <p id="notice"><%= flash[:notice] %></p>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <p id="alert"><%= flash[:alert] %></p>
-    <% end %>
-    
     <div class="col-sm-6 col-sm-offset-3">
+      <!--  NOTICE AND ALERTS -->
+      <% if flash[:notice] %>
+        <p id="notice" class="alert alert-info"><%= flash[:notice] %></p>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <p id="alert" class="alert alert-danger"><strong>Oh snap!</strong> <%= flash[:alert] %></p>
+      <% end %>
       <%= yield %>
     </div>  
   </div>

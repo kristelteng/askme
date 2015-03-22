@@ -28,12 +28,12 @@ hr {
   color: #ccc;
 }
 
-.form-control:focus {
+.askme-form-control:focus {
   border-color: #888;
   box-shadow: none;
 }
 
-.form-control{
+.askme-form-control{
   font-size: 16px;
   color: #888;
 }
@@ -78,8 +78,6 @@ a.title {
 
 .answer-count {
   color: #333;
-  display: inline-block;
-  font-size: 16px;
   font-family: Lato-thin;
 }
 

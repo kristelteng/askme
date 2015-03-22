@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1 class="main-title">Sign Up ?</h1>
 
 <%= form_for @user do |f|  %>
   <% if @user.errors.any? %>
@@ -11,24 +11,30 @@
       </ul>
     </div>
   <% end %>
+    <form>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control askme-form-control", placeholder: "Enter email" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control askme-form-control", placeholder: "Password" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "form-control askme-form-control", placeholder: "Confirm password" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
+      <div class="actions">
+        <%= f.submit "submit", class: 'btn btn-primary login-btn' %>
+      </div>
+    </form>
 <% end %>

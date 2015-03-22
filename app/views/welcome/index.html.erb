@@ -26,11 +26,8 @@
   </div>
 
   <div class="author">
-    <em>- <%= question.user.email %> - <%= distance_of_time_in_words(Time.now, question.created_at) %> ago - </em>
-  </div>
-    
-  <div class="answer-count">
-    <em>answers(<%= question.answers.count %>)</em>
+    <em>- <%= question.user.email %> - <%= distance_of_time_in_words(Time.now, question.created_at) %> ago - <span class="answer-count">answers(<%= question.answers.count %>)
+  </span></em>
   </div>
  
   <% question.answers.order('id desc').limit(1).each do |answer| %>
