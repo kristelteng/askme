@@ -52,19 +52,7 @@ class QuestionsController < ApplicationController
       redirect_to edit_question_path(@question)
     end
   end
-
-
-  # def update
-  #   @question = Question.find(params[:id])
-
-  #   if @question.update(question_params)
-  #     redirect_to @question
-  #   else
-  #     render 'edit'
-  #   end
-  # end
-
-
+  
   def destroy
     @question = Question.find(params[:id])
     # if user is logged in AND user is the one who wrote the question
