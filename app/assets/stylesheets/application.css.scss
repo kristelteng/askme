@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "welcome";
 @import "questions";
+@import "sessions";
 
 
 @font-face {
@@ -33,7 +34,6 @@ html, body {
 .navbar-default {
   height: 50px;
   background-color: white;
-  //padding-top: 50px;
 }
 
 .brand-image img {
@@ -42,8 +42,7 @@ html, body {
 }
 
 .navbar-text {
-  font-family: Lato-Bold, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   color: #777;
 }
 

@@ -1,45 +1,46 @@
-<!-- Question Box -->
-<!-- create a div --> 
-<h1 class="ask-me">ask me</h1>
-<p class="tagline">usually answered in minutes!</p><hr>
+<!-- ASK ME? -->
+<div class="ask-me">
+  <h1 class="main-title">ask me ?</h1>
+  <p class="tagline">usually answered in minutes!</p>
+</div>
 
-
+<!-- QUESTION FORM -->
 <%= form_for :question, url: questions_path do |f| %>
-  <div>
-      <%= f.label :Questions?, class: 'label-field' %>
-      <div class="input-group">
-        <%= f.text_field :title, class: 'form-control', placeholder: "Ask a question" %>
+<div>
+  <%= f.label :Questions?, class: 'label-field' %>
+  <div class="input-group">
+    <%= f.text_field :title, class: 'form-control', placeholder: "Ask a question" %>
 
-        <span class="input-group-btn">
-          <%= f.submit "submit", class: 'btn btn-primary' %>    
-        </span>
-      </div><!-- /input-group -->
-  </div>
+    <span class="input-group-btn">
+      <%= f.submit "submit", class: 'btn btn-primary' %>    
+    </span>
+  </div><!-- /input-group -->
+</div>
 <% end %>
 
 
-
-<!-- listing articles -->
- <% @questions.order("id desc").each do |question| %>
+<!-- LIST OF QUESTIONS -->
+<% @questions.order("id desc").each do |question| %>
   <div class="question-title">
     <%= link_to question.title, question_path(question), class: 'title' %>
   </div>
 
   <div class="author">
-    <em>- <%= question.user.email %> - <%= distance_of_time_in_words(Time.now, question.created_at) %> ago</em>
+    <em>- <%= question.user.email %> - <%= distance_of_time_in_words(Time.now, question.created_at) %> ago - </em>
   </div>
-
+    
   <div class="answer-count">
-    Answers(<%= question.answers.count %>)
+    <em>answers(<%= question.answers.count %>)</em>
   </div>
-
+ 
   <% question.answers.order('id desc').limit(1).each do |answer| %>
-      <div class="answer-body">
-        <%= answer.body.truncate(200) %>
-      </div>
-      <div class="author">
-        <em>- <%= answer.user.email %> answered on <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>- </em>
-      </div>
+    <div class="answer-body">
+      <%= answer.body.truncate(200) %>
+    </div>
+
+    <!-- <div class="author">
+      <em>- <%= answer.user.email %> answered on <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>- </em>
+    </div> -->
   <% end %>
   <hr>
 <% end %>

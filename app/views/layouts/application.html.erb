@@ -32,30 +32,20 @@
   </nav>
   <!--  NAVBAR -->
 
-    <div class="row">
-      <!--  NOTICE AND ALERTS -->
-      <% if flash[:notice] %>
-        <p id="notice"><%= flash[:notice] %></p>
-      <% end %>
+  <div class="row">
+    <!--  NOTICE AND ALERTS -->
+    <% if flash[:notice] %>
+      <p id="notice"><%= flash[:notice] %></p>
+    <% end %>
 
-      <% if flash[:alert] %>
-        <p id="alert"><%= flash[:alert] %></p>
-      <% end %>
-      
-      <div class="col-sm-6 col-sm-offset-3">
-        <%= yield %>
-      </div>
-
-      <!-- div class="col-sm-offset-3">
-        <p class="userinfo">
-          <% if current_user %>
-            Hi <%= current_user.email %>. <%= link_to 'log out', session_path('current'), :method => :delete %>
-          <% else %>
-            <%= link_to 'log in', new_session_path %> or <%= link_to 'sign up', new_user_path %>
-          <% end %>
-        </p> -->
-  
-    </div>
+    <% if flash[:alert] %>
+      <p id="alert"><%= flash[:alert] %></p>
+    <% end %>
+    
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= yield %>
+    </div>  
+  </div>
 </div>
 
 </body>

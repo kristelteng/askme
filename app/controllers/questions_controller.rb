@@ -1,10 +1,6 @@
 class QuestionsController < ApplicationController
   before_filter :ensure_logged_in, only: [:create, :destroy]
 
-  def index
-    @questions = Question.all
-  end
-
   def new 
     @question = Question.new
   end 
@@ -29,7 +25,7 @@ class QuestionsController < ApplicationController
       @question.user = current_user
 
       if @question.save
-        redirect_to @question
+        redirect_to edit_question_path(@question)
       else
         render 'new'
       end

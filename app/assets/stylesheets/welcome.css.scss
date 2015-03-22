@@ -1,37 +1,41 @@
-.ask-me {
+/* ASK ME */
+.main-title {
   font-family: Lato-Bold, sans-serif;
-  font-size: 30px;
+  font-size: 50px;
   color: #333;
   text-transform: uppercase;
 }
 
-.field {
-  font-family: Lato-Regular, sans-serif;
-  font-size: 13px;
-  color: #777;
+.ask-me {
+  line-height: 10px;
 }
 
 .tagline {
-  font-family: Lato-Regular, sans-serif;
-  color: #ccc;
+  font-family: Lato-Regular,sans-serif;
+  color: #999;
   font-size: 16px;
+  border-bottom: 1px solid;
+  border-bottom-color: #CCC;
+  padding-bottom: 17px;
 }
 
+
+/* QUESTION FORM */
 hr {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-width: 3px 0px 0px;
   margin-top: 40px;
+  color: #ccc;
 }
 
-
 .form-control:focus {
-  border-color: #ccc;
+  border-color: #888;
   box-shadow: none;
 }
 
 .form-control{
-  font-size: 15px;
-  color: #ccc;
+  font-size: 16px;
+  color: #888;
 }
 
 textarea.form-control {
@@ -45,16 +49,9 @@ textarea.form-control {
   padding-top: 30px;
 }
 
-.author {
-  color: #ccc;
-  font-size: 16px;
-  font-family: Lato-thin;
-  text-indent: -8px;
-}
 
-// LISTING ARTICLES
-.question-title {
-  
+/* LIST OF QUESTIONS */
+.question-title { 
   font-family: Lato-Bold;
   color: #555;
   padding-top: 25px;
@@ -64,9 +61,25 @@ a.title {
   font-size: 30px;
   line-height: 130%;
   text-decoration: none;
-
 }
 
+.author {
+  color: #999;
+  font-size: 16px;
+  font-family: Lato-thin;
+  text-indent: -8px;
+  display: inline-block;
+}
 
+.answer-body {
+  color: #777;
+  font-family: Lato-thin;
+}
 
+.answer-count {
+  color: #333;
+  display: inline-block;
+  font-size: 16px;
+  font-family: Lato-thin;
+}
 
