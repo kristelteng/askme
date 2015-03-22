@@ -6,7 +6,6 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end
 
-
   def create
     @answer = @question.answers.build(answer_params)
     @answer.body.strip!

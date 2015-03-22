@@ -18,7 +18,6 @@
 </div>
 <% end %>
 
-
 <!-- LIST OF QUESTIONS -->
 <% @questions.order("id desc").each do |question| %>
   <div class="question-title">
@@ -34,10 +33,6 @@
     <div class="answer-body">
       <%= answer.body.truncate(200) %>
     </div>
-
-    <!-- <div class="author">
-      <em>- <%= answer.user.email %> answered on <%= answer.created_at.strftime("%d %b. %Y %H:%M") %>- </em>
-    </div> -->
   <% end %>
   <hr>
 <% end %>
