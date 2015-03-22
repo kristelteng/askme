@@ -36,11 +36,11 @@
     <div class="col-sm-6 col-sm-offset-3">
       <!--  NOTICE AND ALERTS -->
       <% if flash[:notice] %>
-        <p id="notice" class="alert alert-info"><%= flash[:notice] %></p>
+        <p id="notice" class="alert alert-info notice-message"><%= flash[:notice] %></p>
       <% end %>
 
       <% if flash[:alert] %>
-        <p id="alert" class="alert alert-danger"><strong>Oh snap!</strong> <%= flash[:alert] %></p>
+        <p id="alert" class="alert alert-danger alert-message"><strong>Oh snap! </strong> <%= flash[:alert] %></p>
       <% end %>
       <%= yield %>
     </div>  
