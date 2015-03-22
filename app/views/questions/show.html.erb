@@ -1,21 +1,27 @@
 <!-- QUESTIONS SECTION -->
+
+<!-- <div class="title-section"> -->
 <div class="question-title">
   <%= @question.title %>
+  <% if current_user && current_user == @question.user %>
+    
+    <!-- DELETE QUESTION -->
+    <span class="question-control">
+      <%= link_to 'Delete', question_path, method: :delete, data: {confirm: 'Delete the question?'} %> |
+      <%= link_to 'Edit', edit_question_path %>
+    </span>
+  <% end %>
 </div>
 
 <div class="author">
   <em>- <%= @question.user.email %> - <%= distance_of_time_in_words(Time.now, @question.created_at) %> ago</em>
 </div>
 
-<% if current_user && current_user == @question.user %>
-  <!-- DELETE QUESTION -->
-  <div class="question-control">
-    <%= link_to 'Delete', question_path, method: :delete, data: {confirm: 'Delete the question?'} %>
-    |
-    <%= link_to 'Edit', edit_question_path %>
-  </div>
-<% end %>
+<div class="question-body">
+  <%= @question.text %>
+</div>
 <hr>
+
 
 <!-- ANSWERS IN DESC ORDER -->
 <% @question.answers.order('id desc').each do |answer| %>
@@ -65,5 +71,5 @@
 
 <!-- MUST SIGN IN TO LEAVE A COMMENT -->
 <% else %>
-  <p class><%= link_to "comment", new_session_path, class: "comment-link" %> </p>
+  <p class><%= link_to "Comment", new_session_path, class: "comment-link" %> </p>
 <% end %>

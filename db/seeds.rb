@@ -35,7 +35,7 @@ password_confirmation: "1234",
 
 ###### QUESTIONS BY USER_ID: 1 ######
 q1 = Question.create!(
-  title: "Burger King is WAY better than McDonalds, and to be quite honest, I could care less if any of you agree with me on this subject.?", 
+  title: "Do I wear too much makeup?", 
   user_id: 1
 )
 Answer.create!(
@@ -49,16 +49,17 @@ Answer.create!(
   question_id: q1.id,
 )
 
+###### QUESTIONS BY USER_ID: 1 ######
 Question.create!(
 title: "Anyone with good advice for high school?",
 user_id: "1"
 )
-
+###### QUESTIONS BY USER_ID: 1 ######
 Question.create!(
 title: "What is the most popular fast food in america?",
 user_id: "1"
 )
-
+###### QUESTIONS BY USER_ID: 1 ######
 Question.create!(
 title: "Does anyone else out there think that Taco Bell sucks?",
 user_id: "1"
