@@ -1,7 +1,16 @@
+class EmailValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+      record.errors[attribute] << (options[:message] || "is not an email")
+    end
+  end
+end
+
 class User < ActiveRecord::Base
-  #add attr_accessor :password, :password_confirmation
   has_secure_password
 
-  has_many :ansers
+  validates :email, presence: true, email: true
+
+  has_many :answers
   has_many :questions, through: :answers
 end

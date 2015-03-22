@@ -1,9 +1,29 @@
 <h1 class="main-title">Sign Up ?</h1>
 
+
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <!--  NOTICE AND ALERTS -->
+      <% if flash[:notice] %>
+        <p id="notice" class="alert alert-info"><%= flash[:notice] %></p>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <p id="alert" class="alert alert-danger"><strong>Oh snap!</strong> <%= flash[:alert] %></p>
+      <% end %>
+      <%= yield %>
+    </div>  
+  </div>
+</div>
+
+
 <%= form_for @user do |f|  %>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
   <% if @user.errors.any? %>
     <div class="error messages">
-      <h2>Something is wrong</h2>
+      <h2 class="alert alert-info">Something is wrong</h2>
       <ul>
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
