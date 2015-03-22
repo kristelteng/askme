@@ -155,12 +155,12 @@ Answer.create!(
 
 Question.create!(
 title: "What is the cutest dog in the world?",
-user_id: "3"
+user_id: 3
 )
 
 Question.create!(
 title: "DESPERATELY need help walking my dog? He's way too strong!?",
-user_id: "3"
+user_id: 3
 )
 
 
@@ -190,20 +190,20 @@ Answer.create!(
 
 Question.create!(
 title: "IPhone 6 or 6 Plus?", 
-user_id: "4"
+user_id: 4
 )
 
 Question.create!(
 title: "Can a text message be sent to a turned off phone?",
-user_id: "4"
+user_id: 4
 )
 
 Question.create!(
 title: "When does GTA V come out for PS2?",
-user_id: "4"
+user_id: 4
 )
 
 Question.create!(
 title: "Is it hard to repair a Vizio TV?",
-user_id: "4"
+user_id: 4
 )
