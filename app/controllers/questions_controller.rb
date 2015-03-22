@@ -5,10 +5,6 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end 
 
-  def edit 
-    @question = Question.find(params[:id])
-  end
-
   def show
     @question = Question.find(params[:id])
 
@@ -16,6 +12,10 @@ class QuestionsController < ApplicationController
       @answer = @question.answers.build
     end
   end
+
+  def edit 
+    @question = Question.find(params[:id])
+  end 
 
   def create
     @question = Question.new(question_params)
@@ -37,13 +37,33 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
+    question_params[:title].strip!
 
-    if @question.update(question_params)
-      redirect_to @question
+    if question_params[:title].length > 0
+       @question.user = current_user
+      
+      if @question.update(question_params)
+        redirect_to @question
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      flash[:notice] = "Question cannot be empty"
+      redirect_to edit_question_path(@question)
     end
   end
+
+
+  # def update
+  #   @question = Question.find(params[:id])
+
+  #   if @question.update(question_params)
+  #     redirect_to @question
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
 
   def destroy
     @question = Question.find(params[:id])
